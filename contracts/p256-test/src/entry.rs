@@ -15,10 +15,22 @@ use p256::ecdsa::{
     SigningKey,
 };
 
+const SECRET_KEYS: [u8; 32] = [
+    0x51, 0x9b, 0x42, 0x3d, 0x71, 0x5f, 0x8b, 0x58, 0x1f, 0x4f, 0xa8, 0xee, 0x59, 0xf4, 0x77, 0x1a,
+    0x5b, 0x44, 0xc8, 0x13, 0x0b, 0x4e, 0x3e, 0xac, 0xca, 0x54, 0xa5, 0x6d, 0xda, 0x72, 0xb4, 0x64,
+];
+
+fn generate_msg() -> [u8; 32] {
+    let hello = b"hello, world";
+    let mut msg = [0u8; 32];
+    msg[0..hello.len()].copy_from_slice(hello);
+    msg
+}
+
 pub fn main() -> Result<(), Error> {
-    let sk = SigningKey::from_slice([1u8; 32].as_ref()).unwrap();
+    let sk = SigningKey::from_slice(&SECRET_KEYS).unwrap();
     let pk = sk.verifying_key();
-    let msg = [0u8; 32];
+    let msg = generate_msg();
     let (signature, _) = sk.sign_prehash(&msg).unwrap();
     let last = current_cycles();
     pk.verify_prehash(&msg, &signature).unwrap();
