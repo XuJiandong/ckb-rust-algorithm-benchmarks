@@ -1,0 +1,10 @@
+[package]
+name = "k256-test"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ckb-std = "0.14.2"
+k256 = { git = "https://github.com/RustCrypto/elliptic-curves.git", default-features = false, features = ["arithmetic", "ecdsa"] }

@@ -11,3 +11,7 @@ deployment = "deployment.toml"
 [[contracts]]
 name = "p256-test"
 template_type = "Rust"
+
+[[contracts]]
+name = "k256-test"
+template_type = "Rust"

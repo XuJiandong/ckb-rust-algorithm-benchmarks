@@ -198,6 +198,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "k256"
+version = "0.13.1"
+source = "git+https://github.com/RustCrypto/elliptic-curves.git#d8e44b0440dbf61b1c42fe02e4e95b4f0e55ba69"
+dependencies = [
+ "cfg-if",
+ "ecdsa",
+ "elliptic-curve",
+ "sha2",
+]
+
+[[package]]
+name = "k256-test"
+version = "0.1.0"
+dependencies = [
+ "ckb-std",
+ "k256",
+]
+
+[[package]]
 name = "libc"
 version = "0.2.147"
 source = "registry+https://github.com/rust-lang/crates.io-index"
