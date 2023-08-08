@@ -6,6 +6,10 @@ use core::result::Result;
 use alloc::format;
 
 use ckb_std::syscalls::debug;
+use k256::ecdsa::{
+    signature::{Signer, Verifier},
+    SigningKey,
+};
 // Import CKB syscalls and structures
 // https://docs.rs/ckb-std/
 use crate::error::Error;
@@ -24,16 +28,12 @@ fn generate_msg() -> [u8; 32] {
 }
 
 fn k256() -> Result<(), Error> {
-    use k256::ecdsa::{
-        signature::hazmat::{PrehashSigner, PrehashVerifier},
-        SigningKey,
-    };
     let sk = SigningKey::from_slice(&SECRET_KEY).unwrap();
     let pk = sk.verifying_key();
     let msg = generate_msg();
-    let (signature, _) = sk.sign_prehash(&msg).unwrap();
+    let (signature, _) = sk.try_sign(&msg).unwrap();
     let last = current_cycles();
-    pk.verify_prehash(&msg, &signature).unwrap();
+    pk.verify(&msg, &signature).unwrap();
     let cycles = current_cycles() - last;
     debug(format!(
         "K256: cost of verifying cycles: {} K",
