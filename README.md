@@ -22,3 +22,4 @@ and [capsule 0.10.0](https://github.com/nervosnetwork/capsule):
 |----------|----------|----------|-----------------------|
 | P256     |  4.18 M Cycles  | 53 K Bytes  | N/A      |
 | K256     |  2.87 M Cycles  | 84 K Bytes  | No precomputed table    |
+| RSA-2048 |  5.23 M Cycles  | 109 K Bytes | N/A      |

@@ -36,7 +36,7 @@ fn k256() -> Result<(), Error> {
     pk.verify(&msg, &signature).unwrap();
     let cycles = current_cycles() - last;
     debug(format!(
-        "K256: cost of verifying cycles: {} K",
+        "cost of k256 verifying cycles: {} K",
         cycles / 1024
     ));
 
@@ -46,10 +46,4 @@ fn k256() -> Result<(), Error> {
 pub fn main() -> Result<(), Error> {
     k256()?;
     Ok(())
-}
-
-// Unit tests are supported.
-#[test]
-fn test_foo() {
-    assert!(true);
 }

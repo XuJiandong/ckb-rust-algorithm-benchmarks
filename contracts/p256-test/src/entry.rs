@@ -35,13 +35,10 @@ pub fn main() -> Result<(), Error> {
     let last = current_cycles();
     pk.verify(&msg, &signature).unwrap();
     let cycles = current_cycles() - last;
-    debug(format!("cost of verifying cycles: {} K", cycles / 1024));
+    debug(format!(
+        "cost of p256 verifying cycles: {} K",
+        cycles / 1024
+    ));
 
     Ok(())
-}
-
-// Unit tests are supported.
-#[test]
-fn test_foo() {
-    assert!(true);
 }
