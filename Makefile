@@ -7,6 +7,7 @@ ci:
 	ls -alt target/riscv64imac-unknown-none-elf/release
 	ckb-debugger --bin target/riscv64imac-unknown-none-elf/release/p256-test
 	ckb-debugger --bin target/riscv64imac-unknown-none-elf/release/k256-test
+	ckb-debugger --bin target/riscv64imac-unknown-none-elf/release/rsa-test
 
 install:
 	cargo install --git https://github.com/nervosnetwork/ckb-standalone-debugger ckb-debugger
