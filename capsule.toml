@@ -19,3 +19,8 @@ template_type = "Rust"
 [[contracts]]
 name = "rsa-test"
 template_type = "Rust"
+
+[[contracts]]
+name = "ed25519-test"
+template_type = "Rust"
+
