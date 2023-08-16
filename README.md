@@ -1,6 +1,13 @@
-# p256-test
+# CKB Rust Algorithm Benchmarks
 
-Build contracts:
+This project aims to provide benchmarks for the implementation of cryptography
+algorithms in Rust on CKB. It now includes:
+- p256(secp256r1)
+- k256(secp256k1)
+- rsa(2048 bits)
+- ed25519
+
+## Build and Run
 
 ``` sh
 capsule build --release
@@ -9,10 +16,8 @@ capsule build --release
 Run tests:
 
 ``` sh
-ckb-debugger --bin target/riscv64imac-unknown-none-elf/release/p256-test
-ckb-debugger --bin target/riscv64imac-unknown-none-elf/release/k256-test
+make ci
 ```
-
 
 ## Benchmark Matrix
 Test with [ckb-debugger 0.111-rc8](https://github.com/nervosnetwork/ckb-standalone-debugger/commit/75e81f9490d6186ad8d9accbf39040640fcac228)
