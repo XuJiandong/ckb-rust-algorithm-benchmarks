@@ -181,6 +181,7 @@ dependencies = [
  "elliptic-curve",
  "rfc6979",
  "signature",
+ "spki",
 ]
 
 [[package]]
@@ -226,6 +227,7 @@ dependencies = [
  "ff",
  "generic-array",
  "group",
+ "pkcs8",
  "rand_core",
  "sec1",
  "subtle",
@@ -271,6 +273,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "hex"
+version = "0.4.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7f24254aa9a54b5c858eaee2f5bccdb46aaf0e486a595ed5fd8f86ba55232a70"
+
+[[package]]
 name = "hex-literal"
 version = "0.3.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -301,6 +309,7 @@ name = "k256-test"
 version = "0.1.0"
 dependencies = [
  "ckb-std",
+ "hex",
  "k256",
 ]
 
@@ -398,6 +407,7 @@ name = "p256-test"
 version = "0.1.0"
 dependencies = [
  "ckb-std",
+ "hex",
  "p256",
 ]
 
@@ -547,6 +557,7 @@ dependencies = [
  "base16ct",
  "der",
  "generic-array",
+ "pkcs8",
  "subtle",
  "zeroize",
 ]
