@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_imports)]
+
 // Import from `core` instead of from `std` since we are in no-std mode
 use core::result::Result;
 
@@ -7,7 +10,9 @@ use alloc::{format, vec};
 
 use ckb_std::syscalls::debug;
 use num_traits::{FromPrimitive, Num};
+use rsa::pkcs1v15::VerifyingKey;
 use rsa::sha2::Sha256;
+use rsa::RsaPublicKey;
 use rsa::{
     pkcs1v15,
     signature::{Keypair, Verifier},
@@ -26,7 +31,7 @@ fn generate_msg() -> [u8; 32] {
     msg
 }
 
-fn get_key() -> RsaPrivateKey {
+fn get_private_key() -> RsaPrivateKey {
     RsaPrivateKey::from_components(
         BigUint::from_str_radix("14314132931241006650998084889274020608918049032671858325988396851334124245188214251956198731333464217832226406088020736932173064754214329009979944037640912127943488972644697423190955557435910767690712778463524983667852819010259499695177313115447116110358524558307947613422897787329221478860907963827160223559690523660574329011927531289655711860504630573766609239332569210831325633840174683944553667352219670930408593321661375473885147973879086994006440025257225431977751512374815915392249179976902953721486040787792801849818254465486633791826766873076617116727073077821584676715609985777563958286637185868165868520557", 10).unwrap(),
         BigUint::from_u32(3).unwrap(),
@@ -38,11 +43,18 @@ fn get_key() -> RsaPrivateKey {
     ).unwrap()
 }
 
-pub fn test_rsa_2048(msg: &[u8]) {
-    let private_key = get_key();
+fn get_public_key() -> RsaPublicKey {
+    RsaPublicKey::new(
+        BigUint::from_str_radix("14314132931241006650998084889274020608918049032671858325988396851334124245188214251956198731333464217832226406088020736932173064754214329009979944037640912127943488972644697423190955557435910767690712778463524983667852819010259499695177313115447116110358524558307947613422897787329221478860907963827160223559690523660574329011927531289655711860504630573766609239332569210831325633840174683944553667352219670930408593321661375473885147973879086994006440025257225431977751512374815915392249179976902953721486040787792801849818254465486633791826766873076617116727073077821584676715609985777563958286637185868165868520557", 10).unwrap(),
+        BigUint::from_u32(3).unwrap()
+    ).unwrap()
+}
 
-    let signing_key = pkcs1v15::SigningKey::<Sha256>::new(private_key);
+pub fn test_rsa_2048(msg: &[u8]) {
+    let public_key = get_public_key();
+
     // skip signing step to reduce binary size
+    // let signing_key = pkcs1v15::SigningKey::<Sha256>::new(private_key);
     // let signature_bytes = signing_key.sign(msg).to_bytes();
     // debug(format!("signature_bytes = {:?}", signature_bytes));
     let signature_bytes: [u8; 256] = [
@@ -60,8 +72,7 @@ pub fn test_rsa_2048(msg: &[u8]) {
         217, 25, 199, 32, 49, 67, 76, 217, 200, 35, 158, 173, 114, 17, 208, 49, 24, 131, 130, 11,
         96, 80, 178, 8, 47, 3, 73, 7, 204, 205, 38, 54, 9, 72, 23, 232,
     ];
-
-    let verifying_key = signing_key.verifying_key();
+    let verifying_key: VerifyingKey<Sha256> = VerifyingKey::new(public_key);
     let signature = pkcs1v15::Signature::try_from(&signature_bytes[..]).unwrap();
 
     let last = current_cycles();
