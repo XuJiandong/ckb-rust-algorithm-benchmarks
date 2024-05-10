@@ -1,5 +1,5 @@
 [workspace]
-members = ["contracts/p256-test", "contracts/k256-test", "contracts/rsa-test", "contracts/ed25519-test"]
+members = ["contracts/p256-test", "contracts/k256-test", "contracts/rsa-test", "contracts/ed25519-test", "contracts/schnorr-test"]
 exclude = ["tests"]
 
 [profile.release]
