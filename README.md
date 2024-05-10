@@ -27,8 +27,8 @@ and [capsule 0.10.0](https://github.com/nervosnetwork/capsule):
 
 | Curve | Cycles | Binary Size | Additional Information  |
 |----------|----------|----------|-----------------------|
-| p256     |  3.9M M Cycles  | 64 K Bytes  | N/A         |
-| k256     |  2.8M M Cycles  | 87 K Bytes  | No precomputed table    |
-| RSA-2048 |  5.1M M Cycles  | 86 K Bytes  | N/A      |
-| ed25519  |  1.9M M Cycles  | 50 K Bytes  | N/A      |
-| schnorr  |  2.7M M Cycles  | 78 K Bytes  | N/A      |
+| p256     |  3.9M Cycles  | 63K Bytes  | N/A      |
+| k256     |  2.8M Cycles  | 85K Bytes  | No precomputed table    |
+| RSA-2048 |  5.1M Cycles  | 84K Bytes  | N/A      |
+| ed25519  |  1.9M Cycles  | 49K Bytes  | N/A      |
+| schnorr  |  2.7M Cycles  | 76K Bytes  | N/A      |
