@@ -24,3 +24,6 @@ template_type = "Rust"
 name = "ed25519-test"
 template_type = "Rust"
 
+[[contracts]]
+name = "schnorr-test"
+template_type = "Rust"
