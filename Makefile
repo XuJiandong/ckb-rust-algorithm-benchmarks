@@ -12,8 +12,6 @@ ci:
 	ckb-debugger --bin target/riscv64imac-unknown-none-elf/release/ed25519-test
 
 install:
-	cargo install --git https://github.com/nervosnetwork/ckb-standalone-debugger ckb-debugger
+	cargo install --git https://github.com/nervosnetwork/ckb-standalone-debugger ckb-debugger --tag 0.115.0-rc2
 	cargo install cross --git https://github.com/cross-rs/cross --rev=6982b6c
-	wget 'https://github.com/nervosnetwork/capsule/releases/download/v0.10.4/capsule_v0.10.4_x86_64-linux.tar.gz'
-	tar xzvf capsule_v0.10.4_x86_64-linux.tar.gz
-	mv capsule_v0.10.4_x86_64-linux/capsule ~/.cargo/bin
+	cargo install ckb-capsule --git https://github.com/nervosnetwork/capsule.git --tag v0.10.4
