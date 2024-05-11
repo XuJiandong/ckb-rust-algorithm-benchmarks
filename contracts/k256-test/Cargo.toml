@@ -7,7 +7,7 @@ edition = "2021"
 
 [dependencies]
 ckb-std = "0.14.2"
-k256 = { git = "https://github.com/RustCrypto/elliptic-curves.git", default-features = false, features = ["arithmetic", "ecdsa", "alloc"] }
+k256 = { version = "=0.13.1", default-features = false, features = ["arithmetic", "ecdsa", "alloc"] }
 hex = { version = "0.4", default-features = false, features = ["alloc"] }
 
 [features]

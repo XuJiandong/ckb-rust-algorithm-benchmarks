@@ -22,13 +22,13 @@ make ci
 ```
 
 ## Benchmark Matrix
-Test with [ckb-debugger 0.111-rc8](https://github.com/nervosnetwork/ckb-standalone-debugger/commit/75e81f9490d6186ad8d9accbf39040640fcac228)
-and [capsule 0.10.0](https://github.com/nervosnetwork/capsule):
+Test with [ckb-debugger 0.115.0-rc2](https://github.com/nervosnetwork/ckb-standalone-debugger)
+and [capsule 0.10.4](https://github.com/nervosnetwork/capsule):
 
 | Curve | Cycles | Binary Size | Additional Information  |
 |----------|----------|----------|-----------------------|
-| p256     |  3.9M Cycles  | 63K Bytes  | N/A      |
-| k256     |  2.8M Cycles  | 85K Bytes  | No precomputed table    |
-| RSA-2048 |  5.1M Cycles  | 84K Bytes  | N/A      |
-| ed25519  |  1.9M Cycles  | 49K Bytes  | N/A      |
+| p256     |  3.4M Cycles  | 68K Bytes   | N/A      |
+| k256     |  2.8M Cycles  | 84K Bytes  | No precomputed table    |
+| RSA-2048 |  5.1M Cycles  | 82K Bytes   | N/A      |
+| ed25519  |  1.9M Cycles  | 49K Bytes   | N/A      |
 | schnorr  |  2.7M Cycles  | 76K Bytes  | N/A      |
