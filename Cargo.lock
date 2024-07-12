@@ -306,6 +306,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "k256-recovery-test"
+version = "0.1.0"
+dependencies = [
+ "ckb-std",
+ "hex",
+ "k256",
+]
+
+[[package]]
 name = "k256-test"
 version = "0.1.0"
 dependencies = [
