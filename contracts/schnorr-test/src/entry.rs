@@ -1,16 +1,16 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
-use core::result::Result;
 use alloc::format;
 use alloc::vec::Vec;
+use core::result::Result;
 
+use crate::error::Error;
+use ckb_std::syscalls::current_cycles;
 use ckb_std::syscalls::debug;
 use k256::schnorr::{
     signature::{Signer, Verifier},
     Signature, SigningKey, VerifyingKey,
 };
-use crate::error::Error;
-use ckb_std::syscalls::current_cycles;
 
 const SECRET_KEY: [u8; 32] = [
     0x51, 0x9b, 0x42, 0x3d, 0x71, 0x5f, 0x8b, 0x58, 0x1f, 0x4f, 0xa8, 0xee, 0x59, 0xf4, 0x77, 0x1a,

@@ -5,6 +5,7 @@ all: ci
 ci:
 	capsule build --release
 	ls -alht target/riscv64imac-unknown-none-elf/release
+	ckb-debugger --bin target/riscv64imac-unknown-none-elf/release/k256-recovery-test
 	ckb-debugger --bin target/riscv64imac-unknown-none-elf/release/schnorr-test	
 	ckb-debugger --bin target/riscv64imac-unknown-none-elf/release/p256-test
 	ckb-debugger --bin target/riscv64imac-unknown-none-elf/release/k256-test
