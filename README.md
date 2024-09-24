@@ -12,7 +12,7 @@ algorithms in Rust on CKB. It now includes:
 ## Build and Run
 
 ``` sh
-capsule build --release
+make build
 ```
 
 Run tests:
@@ -22,14 +22,15 @@ make ci
 ```
 
 ## Benchmark Matrix
-Test with [ckb-debugger 0.115.0-rc2](https://github.com/nervosnetwork/ckb-standalone-debugger)
-and [capsule 0.10.4](https://github.com/nervosnetwork/capsule):
+Test with [ckb-debugger 0.118](https://github.com/nervosnetwork/ckb-standalone-debugger)
 
 | Curve | Cycles | Binary Size | Additional Information  |
 |----------|----------|----------|-----------------------|
-| p256     |  3.4M Cycles  | 68K Bytes   | N/A      |
-| k256     |  2.7M Cycles  | 84K Bytes  | No precomputed table    |
-| RSA-2048 |  5.1M Cycles  | 82K Bytes   | N/A      |
-| ed25519  |  1.8M Cycles  | 49K Bytes   | N/A      |
-| schnorr  |  2.6M Cycles  | 76K Bytes  | N/A      |
-| k256     |  5.6M Cycles  | 96K Bytes  | Recovery |
+| p256     |  3.8M Cycles  | 75K Bytes   | N/A      |
+| k256     |  3.7M Cycles  | 107K Bytes  | No precomputed table    |
+| RSA-2048 |  5.4M Cycles  | 113K Bytes   | N/A      |
+| ed25519  |  2.0M Cycles  | 55K Bytes   | N/A      |
+| schnorr  |  3.8M Cycles  | 84K Bytes  | N/A      |
+| k256     |  7.8M Cycles  | 122K Bytes  | Recovery |
+
+The k256 recovery can be boosted with this [PR](https://github.com/RustCrypto/signatures/pull/831).

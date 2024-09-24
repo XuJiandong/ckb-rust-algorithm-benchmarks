@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-ckb-std = "0.14.2"
+ckb-std = { version = "0.15.3", features = ["build-with-clang"] }
 ed25519-dalek = { version = "2.1.1", default-features = false, features = ["digest"] }
 curve25519-dalek = { version = "4.1.2", default-features = false, features = ["digest"] }
 hex-literal = "0.3"
