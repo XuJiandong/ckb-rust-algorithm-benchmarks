@@ -121,7 +121,7 @@ generate:
 
 prepare:
 	rustup target add riscv64imac-unknown-none-elf
-	cargo install --git https://github.com/nervosnetwork/ckb-standalone-debugger ckb-debugger --tag 0.118
+	cargo install --git https://github.com/nervosnetwork/ckb-standalone-debugger ckb-debugger --tag v0.118.0
 
 ci: build
 	ls -alht build/release
