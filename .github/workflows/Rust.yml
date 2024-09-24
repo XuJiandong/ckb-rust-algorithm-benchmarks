@@ -10,7 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run installation
-      run: make install
+      run: make prepare
     - name: Run CI
       run: make ci
-  

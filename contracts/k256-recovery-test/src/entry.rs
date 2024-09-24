@@ -77,12 +77,7 @@ pub fn main() -> Result<(), Error> {
     let last = current_cycles();
     let recovered_key = VerifyingKey::recover_from_msg(&msg_bytes, &signature, rec_id).unwrap();
     assert_eq!(recovered_key, pk);
-    let recovered_key_bytes = recovered_key.to_sec1_bytes();
-    debug(format!(
-        "recovered_key = {:?}",
-        recovered_key_bytes.as_ref()
-    ));
-
+    let _recovered_key_bytes = recovered_key.to_sec1_bytes();
     let cycles = current_cycles() - last;
     debug(format!(
         "cost of k256(recovery) verifying cycles: {} K",
