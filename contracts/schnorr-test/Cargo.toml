@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-ckb-std = { version = "0.15.3", features = ["build-with-clang"] }
+ckb-std = { version = "0.18.0", default-features = false, features = ["allocator", "dummy-atomic"]} 
 k256 = { version = "=0.13.1", default-features = false, features = ["arithmetic", "schnorr", "alloc"] }
 hex = { version = "0.4", default-features = false, features = ["alloc"] }
 
