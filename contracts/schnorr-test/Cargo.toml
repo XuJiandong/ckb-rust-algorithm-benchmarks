@@ -7,7 +7,7 @@ edition = "2021"
 
 [dependencies]
 ckb-std = { version = "0.18.0", default-features = false, features = ["allocator", "dummy-atomic"]} 
-k256 = { version = "=0.13.1", default-features = false, features = ["arithmetic", "schnorr", "alloc"] }
+k256 = { version = "0.14.0-pre.11", default-features = false, features = ["arithmetic", "ecdsa", "alloc", "schnorr"] }
 hex = { version = "0.4", default-features = false, features = ["alloc"] }
 
 [features]

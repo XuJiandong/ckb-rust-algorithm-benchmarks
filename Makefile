@@ -121,7 +121,9 @@ generate:
 
 prepare:
 	rustup target add riscv64imac-unknown-none-elf
-	cargo install --git https://github.com/nervosnetwork/ckb-standalone-debugger ckb-debugger --tag v0.118.0
+	wget 'https://github.com/nervosnetwork/ckb-standalone-debugger/releases/download/v0.200.2/ckb-debugger_v0.200.2_x86_64-unknown-linux-gnu.tar.gz'
+	tar xzvf ckb-debugger_v0.200.2_x86_64-unknown-linux-gnu.tar.gz
+	mv ckb-debugger ~/.cargo/bin
 	wget https://apt.llvm.org/llvm.sh && chmod +x llvm.sh && sudo ./llvm.sh 18 && rm llvm.sh
 
 ci: build

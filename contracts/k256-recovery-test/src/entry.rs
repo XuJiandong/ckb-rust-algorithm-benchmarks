@@ -14,6 +14,7 @@ use k256::ecdsa::{
     signature::{Signer, Verifier},
     RecoveryId, Signature, SigningKey, VerifyingKey,
 };
+use k256::sha2::{Digest, Sha256};
 // Import CKB syscalls and structures
 // https://docs.rs/ckb-std/
 use crate::error::Error;
@@ -36,7 +37,8 @@ fn gen() -> (Vec<u8>, Vec<u8>, Vec<u8>, u8) {
     let sk = SigningKey::from_slice(&SECRET_KEY).unwrap();
     let pk = sk.verifying_key();
     let msg_bytes = generate_msg();
-    let (signature, rec_id) = sk.sign_recoverable(&msg_bytes).unwrap();
+
+    let (signature, rec_id) = sk.sign_prehash_recoverable(&msg_bytes).unwrap();
 
     debug(format!("msg_bytes = {}", hex::encode(&msg_bytes)));
 
@@ -63,7 +65,7 @@ fn gen() -> (Vec<u8>, Vec<u8>, Vec<u8>, u8) {
         hex::decode("68656c6c6f2c20776f726c640000000000000000000000000000000000000000").unwrap();
     let pub_bytes =
         hex::decode("030cec028ee08d09e02672a68310814354f9eabfff0de6dacc1cd3a774496076ae").unwrap();
-    let sig_bytes = hex::decode("0370aa07db8be44caed0f4c77aa6a644fa97228feeb7082ae66f640fe0d7d728610c2a4e1655183d134e191c8a4a06d970bc7a94a25420f5026a0288ff47ad42").unwrap();
+    let sig_bytes = hex::decode("bb54baa41daefb2b6931ddbbbb636054b9027e966a61c3bf5fb75e26b2f2a78f1c65827dba40d81242ae3362e3a936e18092f21d5be8a1ff1b7693cc85068d3a").unwrap();
     let rec_id = 1u8;
     (msg_bytes, pub_bytes, sig_bytes, rec_id)
 }
@@ -75,7 +77,8 @@ pub fn main() -> Result<(), Error> {
     let rec_id = RecoveryId::try_from(rec_id).unwrap();
 
     let last = current_cycles();
-    let recovered_key = VerifyingKey::recover_from_msg(&msg_bytes, &signature, rec_id).unwrap();
+    let recovered_key =
+        VerifyingKey::recover_from_prehash_noverify(&msg_bytes, &signature, rec_id).unwrap();
     assert_eq!(recovered_key, pk);
     let _recovered_key_bytes = recovered_key.to_sec1_bytes();
     let cycles = current_cycles() - last;

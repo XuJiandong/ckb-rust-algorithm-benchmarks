@@ -56,7 +56,7 @@ fn gen() -> (Vec<u8>, Vec<u8>, Vec<u8>) {
 pub fn main() -> Result<(), Error> {
     let (msg_bytes, pub_bytes, sig_bytes) = gen();
     let signature = Signature::try_from(sig_bytes.as_slice()).unwrap();
-    let pk = VerifyingKey::from_bytes(&pub_bytes).unwrap();
+    let pk = VerifyingKey::from_bytes(pub_bytes.as_slice().try_into().unwrap()).unwrap();
 
     let last = current_cycles();
     pk.verify(&msg_bytes, &signature).unwrap();
