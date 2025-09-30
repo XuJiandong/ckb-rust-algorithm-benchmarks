@@ -6,7 +6,7 @@ TOP := $(cur_dir)
 # RUSTFLAGS that are likely to be tweaked by developers. For example,
 # while we enable debug logs by default here, some might want to strip them
 # for minimal code size / consumed cycles.
-CUSTOM_RUSTFLAGS := --cfg debug_assertions
+CUSTOM_RUSTFLAGS := -C debug-assertions
 # Additional cargo args to append here. For example, one can use
 # make test CARGO_ARGS="-- --nocapture" so as to inspect data emitted to
 # stdout in unit tests
@@ -71,7 +71,7 @@ check:
 	cargo check $(CARGO_ARGS)
 
 clippy:
-	cargo clippy $(CARGO_ARGS)
+	cargo clippy $(CARGO_ARGS) --target=riscv64imac-unknown-none-elf
 
 fmt:
 	cargo fmt $(CARGO_ARGS)
@@ -121,8 +121,9 @@ generate:
 
 prepare:
 	rustup target add riscv64imac-unknown-none-elf
-	cargo install --git https://github.com/nervosnetwork/ckb-standalone-debugger ckb-debugger --tag v0.118.0
-	wget https://apt.llvm.org/llvm.sh && chmod +x llvm.sh && sudo ./llvm.sh 18 && rm llvm.sh
+	wget 'https://github.com/nervosnetwork/ckb-standalone-debugger/releases/download/v0.200.2/ckb-debugger_v0.200.2_x86_64-unknown-linux-gnu.tar.gz'
+	tar xzvf ckb-debugger_v0.200.2_x86_64-unknown-linux-gnu.tar.gz
+	mv ckb-debugger ~/.cargo/bin
 
 ci: build
 	ls -alht build/release

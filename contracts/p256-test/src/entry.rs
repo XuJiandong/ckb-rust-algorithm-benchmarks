@@ -13,7 +13,6 @@ use ckb_std::syscalls::debug;
 // https://docs.rs/ckb-std/
 use crate::error::Error;
 use ckb_std::syscalls::current_cycles;
-use hex;
 use p256::ecdsa::{
     signature::{Signer, Verifier},
     Signature, SigningKey, VerifyingKey,
