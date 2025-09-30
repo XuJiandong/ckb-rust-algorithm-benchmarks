@@ -71,7 +71,7 @@ check:
 	cargo check $(CARGO_ARGS)
 
 clippy:
-	cargo clippy $(CARGO_ARGS)
+	cargo clippy $(CARGO_ARGS) --target=riscv64imac-unknown-none-elf
 
 fmt:
 	cargo fmt $(CARGO_ARGS)

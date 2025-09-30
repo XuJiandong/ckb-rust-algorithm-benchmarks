@@ -76,7 +76,7 @@ pub fn test_rsa_2048(msg: &[u8]) {
     let signature = pkcs1v15::Signature::try_from(&signature_bytes[..]).unwrap();
 
     let last = current_cycles();
-    verifying_key.verify(&msg, &signature).unwrap();
+    verifying_key.verify(msg, &signature).unwrap();
     let cycles = current_cycles() - last;
     debug(format!(
         "cost of rsa-2048 verifying cycles: {} K",
