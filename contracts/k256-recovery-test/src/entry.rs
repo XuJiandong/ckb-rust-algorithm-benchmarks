@@ -14,7 +14,6 @@ use k256::ecdsa::{
     signature::{Signer, Verifier},
     RecoveryId, Signature, SigningKey, VerifyingKey,
 };
-use k256::sha2::{Digest, Sha256};
 // Import CKB syscalls and structures
 // https://docs.rs/ckb-std/
 use crate::error::Error;
