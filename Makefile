@@ -133,6 +133,7 @@ ci: build
 	ckb-debugger --bin build/release/k256-test
 	ckb-debugger --bin build/release/rsa-test
 	ckb-debugger --bin build/release/ed25519-test
+	ckb-debugger --max-cycles 35000000000 --bin build/release/sp1-test
 
 # Generate checksum info for reproducible build
 CHECKSUM_FILE := build/checksums-$(MODE).txt
