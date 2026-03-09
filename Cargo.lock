@@ -1150,11 +1150,11 @@ dependencies = [
 [[package]]
 name = "sp1-verifier"
 version = "5.2.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1904bbb3c2d16a7a11db32900f468149bc66253825e222f2db76f64fb8ffd1ab"
+source = "git+https://github.com/XuJiandong/sp1.git?rev=f5586e9#f5586e9a70d0cd19b93915eb04be1923cc429f45"
 dependencies = [
  "blake3",
  "cfg-if",
+ "ckb-std",
  "hex",
  "lazy_static",
  "sha2 0.10.9",
