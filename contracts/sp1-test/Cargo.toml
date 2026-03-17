@@ -6,11 +6,11 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-ckb-std = { version = "0.18.0", default-features = false, features = ["allocator", "dummy-atomic"]} 
+ckb-std = { version = "1.0.2", default-features = false, features = ["allocator", "dummy-atomic"]} 
 hex = { version = "0.4", default-features = false, features = ["alloc"] }
 # debug locally
 # sp1-verifier = { path = "../../../sp1/crates/verifier", default-features = false }
-sp1-verifier = { git = "https://github.com/XuJiandong/sp1.git", default-features = false, rev="6fa13bf" }
+sp1-verifier = { git = "https://github.com/XuJiandong/sp1.git", default-features = false, rev="047630" }
 
 [features]
 default = []

@@ -135,6 +135,11 @@ ci: build
 	ckb-debugger --bin build/release/ed25519-test
 	ckb-debugger --max-cycles 35000000000 --bin build/release/sp1-test
 
+sp1-test:
+# Update the clang version to match your environment. The ckb-alt-bn128 in test-sp1 requires clang-19+.
+	CLANG=clang-19 make build CONTRACT=sp1-test
+	ckb-debugger --max-cycles 35000000000 --bin build/release/sp1-test
+
 # Generate checksum info for reproducible build
 CHECKSUM_FILE := build/checksums-$(MODE).txt
 checksum: build

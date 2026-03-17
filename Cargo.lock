@@ -76,26 +76,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ee741d62dcaf41ca303576ef890989ccb01d5dd77f8ce1a6d6c7846ab5d09efb"
 
 [[package]]
-name = "bytemuck"
-version = "1.24.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1fbdf580320f38b612e485521afda1ee26d10cc9884efaaa750d383e13e3c5f4"
-dependencies = [
- "bytemuck_derive",
-]
-
-[[package]]
-name = "bytemuck_derive"
-version = "1.10.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f9abbd1bc6865053c427f7198e6af43bfdedc55ab791faed4fbd361d789575ff"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
 name = "byteorder"
 version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -118,10 +98,34 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2fd1289c04a9ea8cb22300a459a72a385d7c73d3259e2ed7dcb2af674838cfa9"
 
 [[package]]
+name = "ckb-alt-bn128"
+version = "0.1.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2293a88f6f87be673e6a1e5464389a6244cfd87705903eeca356db4b101cb53b"
+dependencies = [
+ "byteorder",
+ "cc",
+ "crunchy",
+ "lazy_static",
+]
+
+[[package]]
 name = "ckb-std"
 version = "0.18.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "161ac10a3d0c70ff689a0cf739cf5d91329eb4da085001e887aa636a2e729d84"
+dependencies = [
+ "buddy-alloc",
+ "cc",
+ "gcd",
+ "int-enum",
+]
+
+[[package]]
+name = "ckb-std"
+version = "1.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cb7862f5c81338d8d9c7ed9ccaf6989fb845a2d737f677e41b804e018970aff6"
 dependencies = [
  "buddy-alloc",
  "cc",
@@ -352,7 +356,7 @@ dependencies = [
 name = "ed25519-test"
 version = "0.1.0"
 dependencies = [
- "ckb-std",
+ "ckb-std 0.18.0",
  "curve25519-dalek",
  "ed25519-dalek",
  "hex-literal",
@@ -549,7 +553,7 @@ dependencies = [
 name = "k256-recovery-test"
 version = "0.1.0"
 dependencies = [
- "ckb-std",
+ "ckb-std 0.18.0",
  "hex",
  "k256",
 ]
@@ -558,7 +562,7 @@ dependencies = [
 name = "k256-test"
 version = "0.1.0"
 dependencies = [
- "ckb-std",
+ "ckb-std 0.18.0",
  "hex",
  "k256",
 ]
@@ -591,16 +595,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1744e39d1d6a9948f4f388969627434e31128196de472883b39f148769bfe30a"
 dependencies = [
  "libc",
-]
-
-[[package]]
-name = "num-bigint"
-version = "0.4.6"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a5e44f723f1133c9deac646763579fdb3ac745e418f2a7af9cd0c431da1f20b9"
-dependencies = [
- "num-integer",
- "num-traits",
 ]
 
 [[package]]
@@ -672,7 +666,7 @@ dependencies = [
 name = "p256-test"
 version = "0.1.0"
 dependencies = [
- "ckb-std",
+ "ckb-std 0.18.0",
  "hex",
  "p256",
 ]
@@ -844,17 +838,11 @@ dependencies = [
 name = "rsa-test"
 version = "0.1.0"
 dependencies = [
- "ckb-std",
+ "ckb-std 0.18.0",
  "num-traits",
  "rsa",
  "signature 2.2.0",
 ]
-
-[[package]]
-name = "rustc-hex"
-version = "2.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3e75f6a532d0fd9f7f13144f392b6ad56a32696bfcd9c78f797f16bbb6f072d6"
 
 [[package]]
 name = "rustc_version"
@@ -869,7 +857,7 @@ dependencies = [
 name = "schnorr-test"
 version = "0.1.0"
 dependencies = [
- "ckb-std",
+ "ckb-std 0.18.0",
  "hex",
  "k256",
 ]
@@ -965,7 +953,7 @@ checksum = "67b1b7a3b5fe4f1376887184045fcf45c69e92af734b7aaddc05fb777b6fbd03"
 name = "sp1-test"
 version = "0.1.0"
 dependencies = [
- "ckb-std",
+ "ckb-std 1.0.2",
  "hex",
  "sp1-verifier",
 ]
@@ -973,13 +961,14 @@ dependencies = [
 [[package]]
 name = "sp1-verifier"
 version = "6.0.2"
-source = "git+https://github.com/XuJiandong/sp1.git?rev=6fa13bf#6fa13bfdf32872a80653c095dba23b6cbd4500c4"
+source = "git+https://github.com/XuJiandong/sp1.git?rev=047630#047630bd5a57f7e71fa1136c7f3eef36a42c6f3e"
 dependencies = [
  "blake3",
+ "ckb-alt-bn128",
+ "ckb-std 1.0.2",
  "dirs",
  "hex",
  "sha2 0.10.9",
- "substrate-bn-succinct-rs",
  "thiserror 2.0.17",
 ]
 
@@ -1007,22 +996,6 @@ checksum = "8baeff88f34ed0691978ec34440140e1572b68c7dd4a495fd14a3dc1944daa80"
 dependencies = [
  "base64ct",
  "der 0.8.0-rc.9",
-]
-
-[[package]]
-name = "substrate-bn-succinct-rs"
-version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a241fd7c1016fb8ad30fcf5a20986c0c4538e8f15a1b41a1761516299e377ec1"
-dependencies = [
- "bytemuck",
- "byteorder",
- "cfg-if",
- "crunchy",
- "lazy_static",
- "num-bigint",
- "rand",
- "rustc-hex",
 ]
 
 [[package]]

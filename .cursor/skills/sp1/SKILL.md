@@ -10,6 +10,7 @@ description: How to run and benchmark the SP1 verifier on CKB-VM
 Build the SP1 verifier from the project root:
 
 ```
+export CLANG=clang-19
 make build CONTRACT=sp1-test
 ```
 
