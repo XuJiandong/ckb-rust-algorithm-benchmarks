@@ -10,7 +10,7 @@ ckb-std = { version = "1.0.2", default-features = false, features = ["allocator"
 hex = { version = "0.4", default-features = false, features = ["alloc"] }
 # debug locally
 # sp1-verifier = { path = "../../../sp1/crates/verifier", default-features = false }
-sp1-verifier = { git = "https://github.com/XuJiandong/sp1.git", default-features = false, rev="047630" }
+sp1-verifier = { git = "https://github.com/XuJiandong/sp1.git", default-features = false, rev="24b4cd1" }
 
 [features]
 default = []
