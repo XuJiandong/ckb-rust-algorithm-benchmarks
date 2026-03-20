@@ -8,9 +8,7 @@ edition = "2021"
 [dependencies]
 ckb-std = { version = "1.0.2", default-features = false, features = ["allocator", "dummy-atomic"]} 
 hex = { version = "0.4", default-features = false, features = ["alloc"] }
-# debug locally
-# sp1-verifier = { path = "../../../sp1/crates/verifier", default-features = false }
-sp1-verifier = { git = "https://github.com/XuJiandong/sp1.git", default-features = false, rev="24b4cd1" }
+sp1-verifier = { git = "https://github.com/XuJiandong/sp1.git", default-features = false, rev="17e3ed7" }
 
 [features]
 default = []

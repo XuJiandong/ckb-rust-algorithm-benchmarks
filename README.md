@@ -32,4 +32,4 @@ Test with [ckb-debugger 0.200.2](https://github.com/nervosnetwork/ckb-standalone
 | ed25519     |  2.0M Cycles  | 63K Bytes   | N/A      |
 | schnorr     |  3.5M Cycles  | 80K Bytes  | N/A      |
 | k256        |  3.8M Cycles  | 97K Bytes  | Recovery |
-| sp1 verifier|               | 271K       | Plonk verifier |
+| sp1 verifier|  85.6M Cycles | 246K Bytes | Plonk    |
