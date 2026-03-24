@@ -69,6 +69,10 @@ pub fn main() -> Result<(), Error> {
         130, 207, 211, 239, 130, 82, 161, 216, 181, 82,
     ];
 
+    // use this to trigger PlonkError::PairingCheckFailed
+    // let mut proof = proof.clone();
+    // proof[484..516].fill(0);
+
     let last = current_cycles();
     PlonkVerifier::verify(&proof, &[], &vk_hash, sp1_verifier::PLONK_VK_BYTES)
         .expect("plonk verify failed");

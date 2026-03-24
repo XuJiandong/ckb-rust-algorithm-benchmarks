@@ -99,9 +99,9 @@ checksum = "2fd1289c04a9ea8cb22300a459a72a385d7c73d3259e2ed7dcb2af674838cfa9"
 
 [[package]]
 name = "ckb-alt-bn128"
-version = "0.1.5"
+version = "0.1.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fa37c950768809e8ae16dd8d94c09a3eae0894eb40890f4a78f3650c746c06c9"
+checksum = "a4236225e4d1723d2681c597b489ce715249721bd1c2f52dcf8c152d0a9874b5"
 dependencies = [
  "cc",
 ]
@@ -952,7 +952,7 @@ dependencies = [
 [[package]]
 name = "sp1-verifier"
 version = "6.0.2"
-source = "git+https://github.com/XuJiandong/sp1.git?rev=17e3ed7#17e3ed7f46a53a5e620374376189fc30504ecb93"
+source = "git+https://github.com/XuJiandong/sp1.git?rev=0cc2b42#0cc2b42f287bbfce66973e19defb8b39fa361732"
 dependencies = [
  "blake3",
  "ckb-alt-bn128",
