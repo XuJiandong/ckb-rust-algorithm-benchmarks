@@ -1,0 +1,15 @@
+[package]
+name = "sp1-test"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ckb-std = { version = "1.0.2", default-features = false, features = ["allocator", "dummy-atomic"]} 
+hex = { version = "0.4", default-features = false, features = ["alloc"] }
+sp1-verifier = { git = "https://github.com/XuJiandong/sp1.git", default-features = false, rev="0cc2b42" }
+
+[features]
+default = []
+include_signing = []
