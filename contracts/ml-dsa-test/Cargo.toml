@@ -6,6 +6,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-ckb-std = { version = "0.18.0", default-features = false, features = ["allocator", "dummy-atomic"] }
+ckb-std = { version = "1.0.0", default-features = false, features = ["allocator", "dummy-atomic"] }
 ml-dsa = { git = "https://github.com/RustCrypto/signatures", default-features = false, rev = "66473ec" }
 hex = { version = "0.4", default-features = false, features = ["alloc"] }
