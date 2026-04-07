@@ -140,9 +140,20 @@ sp1-test:
 	CLANG=clang-19 make build CONTRACT=sp1-test
 	ckb-debugger --max-cycles 35000000000 --bin build/release/sp1-test
 
+ml-dsa:
+	make build CONTRACT=ml-dsa-test
+	args=$$(cd tools/ml-dsa-signing-tool && cargo run -- MlDsa44 2>/dev/null); \
+	ckb-debugger --bin build/release/ml-dsa-test -- $$args
+
+	args=$$(cd tools/ml-dsa-signing-tool && cargo run -- MlDsa65 2>/dev/null); \
+	ckb-debugger --bin build/release/ml-dsa-test -- $$args
+
+	args=$$(cd tools/ml-dsa-signing-tool && cargo run -- MlDsa87 2>/dev/null); \
+	ckb-debugger --bin build/release/ml-dsa-test -- $$args
+
 # Generate checksum info for reproducible build
 CHECKSUM_FILE := build/checksums-$(MODE).txt
 checksum: build
 	shasum -a 256 build/$(MODE)/* > $(CHECKSUM_FILE)
 
-.PHONY: build test check clippy fmt cargo clean prepare checksum
+.PHONY: build test check clippy fmt cargo clean prepare checksum ml-dsa sp1-test

@@ -7,7 +7,8 @@ algorithms in Rust on CKB. It now includes:
 - rsa(2048 bits)
 - ed25519
 - schnorr
-
+- sp1 verifier(zkvm)
+- ml-dsa
 
 ## Build and Run
 
@@ -33,3 +34,6 @@ Test with [ckb-debugger 0.200.2](https://github.com/nervosnetwork/ckb-standalone
 | schnorr     |  3.5M Cycles  | 80K Bytes  | N/A      |
 | k256        |  3.8M Cycles  | 97K Bytes  | Recovery |
 | sp1 verifier|  63.2M Cycles | 246K Bytes | Plonk    |
+| ml-dsa-44   |  4.9M Cycles | 300K Bytes  | N/A      |
+| ml-dsa-65   |  8.0M cycles | 300K Bytes  | N/A      |
+| ml-dsa-87   | 13.0M Cycles | 300K Bytes  | N/A      |
