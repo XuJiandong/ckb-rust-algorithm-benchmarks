@@ -133,12 +133,14 @@ ci: build
 	ckb-debugger --bin build/release/k256-test
 	ckb-debugger --bin build/release/rsa-test
 	ckb-debugger --bin build/release/ed25519-test
-	ckb-debugger --max-cycles 35000000000 --bin build/release/sp1-test
+	ckb-debugger --bin build/release/sp1-test
+	# The ml-dsa contract depends on the latest version of the `signature` crate, which conflicts with the versions used in other parts of this project.
+	make ml-dsa
 
 sp1-test:
 # Update the clang version to match your environment. The ckb-alt-bn128 in test-sp1 requires clang-19+.
 	CLANG=clang-19 make build CONTRACT=sp1-test
-	ckb-debugger --max-cycles 35000000000 --bin build/release/sp1-test
+	ckb-debugger --bin build/release/sp1-test
 
 ml-dsa:
 	make build CONTRACT=ml-dsa-test
