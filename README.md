@@ -23,7 +23,7 @@ make ci
 ```
 
 ## Benchmark Matrix
-Test with [ckb-debugger 0.200.2](https://github.com/nervosnetwork/ckb-standalone-debugger)
+Test with [ckb-debugger 1.1.0](https://github.com/nervosnetwork/ckb-standalone-debugger)
 
 | Curve | Cycles | Binary Size | Additional Information  |
 |-------------|----------|----------|-----------------------|
@@ -34,6 +34,6 @@ Test with [ckb-debugger 0.200.2](https://github.com/nervosnetwork/ckb-standalone
 | schnorr     |  3.5M Cycles  | 80K Bytes  | N/A      |
 | k256        |  3.8M Cycles  | 97K Bytes  | Recovery |
 | sp1 verifier|  63.2M Cycles | 246K Bytes | Plonk    |
-| ml-dsa-44   |  4.9M Cycles | 300K Bytes  | N/A      |
-| ml-dsa-65   |  8.0M cycles | 300K Bytes  | N/A      |
-| ml-dsa-87   | 13.0M Cycles | 300K Bytes  | N/A      |
+| ml-dsa-44   |  4.6M Cycles | 104K Bytes  | N/A      |
+| ml-dsa-65   |  7.4M cycles | 104K Bytes  | N/A      |
+| ml-dsa-87   | 12.3M Cycles | 104K Bytes  | N/A      |

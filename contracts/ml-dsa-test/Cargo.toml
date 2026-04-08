@@ -9,3 +9,17 @@ edition = "2021"
 ckb-std = { version = "1.0.0", default-features = false, features = ["allocator", "dummy-atomic"] }
 ml-dsa = { git = "https://github.com/RustCrypto/signatures", default-features = false, rev = "66473ec" }
 hex = { version = "0.4", default-features = false, features = ["alloc"] }
+
+[profile.release]
+overflow-checks = true
+opt-level = 3
+panic = 'abort'
+strip = true
+codegen-units = 1
+
+[profile.dev]
+strip = true
+opt-level = 1
+debug = false
+panic = 'abort'
+debug-assertions = true
