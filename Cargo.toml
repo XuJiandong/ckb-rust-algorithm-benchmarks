@@ -1,6 +1,7 @@
 [workspace]
 members = ["contracts/p256-test", "contracts/k256-test",  "contracts/k256-recovery-test", "contracts/rsa-test", "contracts/ed25519-test", "contracts/schnorr-test", "contracts/sp1-test"]
-exclude = ["tests"]
+# ml-dsa has conflict dependencies with others(e.g. k256)
+exclude = ["tests", "contracts/ml-dsa-test", "tools/ml-dsa-signing-tool"]
 resolver = "2"
 
 [profile.release]

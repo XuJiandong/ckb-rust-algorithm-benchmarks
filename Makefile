@@ -133,16 +133,29 @@ ci: build
 	ckb-debugger --bin build/release/k256-test
 	ckb-debugger --bin build/release/rsa-test
 	ckb-debugger --bin build/release/ed25519-test
-	ckb-debugger --max-cycles 35000000000 --bin build/release/sp1-test
+	ckb-debugger --bin build/release/sp1-test
+	# The ml-dsa contract depends on the latest version of the `signature` crate, which conflicts with the versions used in other parts of this project.
+	make ml-dsa
 
 sp1-test:
 # Update the clang version to match your environment. The ckb-alt-bn128 in test-sp1 requires clang-19+.
 	CLANG=clang-19 make build CONTRACT=sp1-test
-	ckb-debugger --max-cycles 35000000000 --bin build/release/sp1-test
+	ckb-debugger --bin build/release/sp1-test
+
+ml-dsa:
+	make build CONTRACT=ml-dsa-test
+	args=$$(cd tools/ml-dsa-signing-tool && cargo run -- MlDsa44 2>/dev/null); \
+	ckb-debugger --bin build/release/ml-dsa-test -- $$args
+
+	args=$$(cd tools/ml-dsa-signing-tool && cargo run -- MlDsa65 2>/dev/null); \
+	ckb-debugger --bin build/release/ml-dsa-test -- $$args
+
+	args=$$(cd tools/ml-dsa-signing-tool && cargo run -- MlDsa87 2>/dev/null); \
+	ckb-debugger --bin build/release/ml-dsa-test -- $$args
 
 # Generate checksum info for reproducible build
 CHECKSUM_FILE := build/checksums-$(MODE).txt
 checksum: build
 	shasum -a 256 build/$(MODE)/* > $(CHECKSUM_FILE)
 
-.PHONY: build test check clippy fmt cargo clean prepare checksum
+.PHONY: build test check clippy fmt cargo clean prepare checksum ml-dsa sp1-test

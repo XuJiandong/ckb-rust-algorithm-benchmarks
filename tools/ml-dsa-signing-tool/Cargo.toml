@@ -1,0 +1,10 @@
+[workspace]
+
+[package]
+name = "ml-dsa-signing-tool"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ml-dsa = { git = "https://github.com/RustCrypto/signatures", rev = "66473ec" }
+hex = "0.4"
