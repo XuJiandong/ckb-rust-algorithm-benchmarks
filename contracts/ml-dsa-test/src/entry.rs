@@ -2,8 +2,8 @@ use alloc::vec::Vec;
 use core::result::Result;
 
 use crate::error::Error;
-use ckb_std::syscalls::{current_cycles, debug};
 use alloc::format;
+use ckb_std::syscalls::{current_cycles, debug};
 use ml_dsa::{EncodedVerifyingKey, MlDsa44, MlDsa65, MlDsa87, Signature, VerifyingKey};
 
 pub fn main() -> Result<(), Error> {
@@ -25,9 +25,7 @@ pub fn main() -> Result<(), Error> {
         }
         b"MlDsa65" => {
             let enc_vk = EncodedVerifyingKey::<MlDsa65>::try_from(vk_bytes.as_slice()).unwrap();
-            let cycles = current_cycles();
             let vk = VerifyingKey::<MlDsa65>::decode(&enc_vk);
-            debug(format!("decode costs {} K cycles", (current_cycles() - cycles)/1024));
             let sig = Signature::<MlDsa65>::try_from(sig_bytes.as_slice()).unwrap();
             assert!(vk.verify_with_context(&msg_bytes, &ctx, &sig));
         }
