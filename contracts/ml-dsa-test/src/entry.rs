@@ -2,8 +2,8 @@ use alloc::vec::Vec;
 use core::result::Result;
 
 use crate::error::Error;
-use ckb_std::syscalls::{current_cycles, debug};
 use alloc::format;
+use ckb_std::syscalls::{current_cycles, debug};
 use ml_dsa::{EncodedVerifyingKey, MlDsa44, MlDsa65, MlDsa87, Signature, VerifyingKey};
 
 pub fn main() -> Result<(), Error> {

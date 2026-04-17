@@ -7,7 +7,7 @@ edition = "2021"
 
 [dependencies]
 ckb-std = { version = "1.0.0", default-features = false, features = ["allocator", "dummy-atomic"] }
-ml-dsa = { git = "https://github.com/RustCrypto/signatures", default-features = false, rev = "66473ec" }
+ml-dsa = { git = "https://github.com/XuJiandong/signatures.git", default-features = false, rev = "6d6f2b6" }
 hex = { version = "0.4", default-features = false, features = ["alloc"] }
 
 [profile.release]

@@ -34,6 +34,6 @@ Test with [ckb-debugger 1.1.0](https://github.com/nervosnetwork/ckb-standalone-d
 | schnorr     |  3.5M Cycles  | 80K Bytes  | N/A      |
 | k256        |  3.8M Cycles  | 97K Bytes  | Recovery |
 | sp1 verifier|  63.2M Cycles | 246K Bytes | Plonk    |
-| ml-dsa-44   |  4.6M Cycles | 104K Bytes  | N/A      |
-| ml-dsa-65   |  7.4M cycles | 104K Bytes  | N/A      |
-| ml-dsa-87   | 12.3M Cycles | 104K Bytes  | N/A      |
+| ml-dsa-44   |  3.2M Cycles | 119K Bytes  | N/A      |
+| ml-dsa-65   |  4.8M cycles | 119K Bytes  | N/A      |
+| ml-dsa-87   |  7.5M Cycles | 119K Bytes  | N/A      |
