@@ -136,7 +136,8 @@ ci: build
 	ckb-debugger --bin build/release/sp1-test
 	# The ml-dsa contract depends on the latest version of the `signature` crate, which conflicts with the versions used in other parts of this project.
 	make ml-dsa
-
+	make sp1-test
+	
 sp1-test:
 # Update the clang version to match your environment. The ckb-alt-bn128 in test-sp1 requires clang-19+.
 	CLANG=clang-19 make build CONTRACT=sp1-test
@@ -153,9 +154,13 @@ ml-dsa:
 	args=$$(cd tools/ml-dsa-signing-tool && cargo run -- MlDsa87 2>/dev/null); \
 	ckb-debugger --bin build/release/ml-dsa-test -- $$args
 
+update-report:
+	cargo build --manifest-path tools/update-report/Cargo.toml --release
+	make ci 2>&1 | tools/update-report/target/release/update-report
+
 # Generate checksum info for reproducible build
 CHECKSUM_FILE := build/checksums-$(MODE).txt
 checksum: build
 	shasum -a 256 build/$(MODE)/* > $(CHECKSUM_FILE)
 
-.PHONY: build test check clippy fmt cargo clean prepare checksum ml-dsa sp1-test
+.PHONY: build test check clippy fmt cargo clean prepare checksum ml-dsa sp1-test update-report

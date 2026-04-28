@@ -82,8 +82,8 @@ pub fn main() -> Result<(), Error> {
     let _recovered_key_bytes = recovered_key.to_sec1_bytes();
     let cycles = current_cycles() - last;
     debug(format!(
-        "cost of k256(recovery) verifying cycles: {} K",
-        cycles / 1024
+        "cost of k256(recovery) verifying cycles: {:.1} M",
+        cycles as f64 / (1000.0 * 1000.0)
     ));
 
     Ok(())

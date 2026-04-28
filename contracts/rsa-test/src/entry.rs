@@ -79,8 +79,8 @@ pub fn test_rsa_2048(msg: &[u8]) {
     verifying_key.verify(msg, &signature).unwrap();
     let cycles = current_cycles() - last;
     debug(format!(
-        "cost of rsa-2048 verifying cycles: {} K",
-        cycles / 1024
+        "cost of rsa-2048 verifying cycles: {:.1} M",
+        cycles as f64 / (1000.0 * 1000.0)
     ));
 }
 
