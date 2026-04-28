@@ -69,8 +69,8 @@ pub fn main() -> Result<(), Error> {
     pk.verify(&msg_bytes, &signature).unwrap();
     let cycles = current_cycles() - last;
     debug(format!(
-        "cost of k256 verifying cycles: {} K",
-        cycles / 1024
+        "cost of k256 verifying cycles: {:.1} M",
+        cycles as f64 / (1000.0 * 1000.0)
     ));
 
     Ok(())

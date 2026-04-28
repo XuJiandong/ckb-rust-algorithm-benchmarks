@@ -80,8 +80,8 @@ pub fn main() -> Result<(), Error> {
     let cycles = current_cycles() - last;
 
     debug(format!(
-        "cost of sp1(zkVM) verifying cycles: {} K",
-        cycles / 1024
+        "cost of sp1(zkVM) verifying cycles: {:.1} M",
+        cycles as f64 / (1000.0 * 1000.0)
     ));
 
     Ok(())

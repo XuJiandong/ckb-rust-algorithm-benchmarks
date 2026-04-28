@@ -40,9 +40,9 @@ pub fn main() -> Result<(), Error> {
 
     let cycles = current_cycles() - last;
     debug(format!(
-        "cost of ml-dsa ({}) verifying cycles: {} K",
+        "cost of ml-dsa ({}) verifying cycles: {:.1} M",
         core::str::from_utf8(type_bytes).unwrap_or("?"),
-        cycles / 1024
+        cycles as f64 / (1000.0 * 1000.0)
     ));
 
     Ok(())

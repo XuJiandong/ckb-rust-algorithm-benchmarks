@@ -35,8 +35,8 @@ pub fn main() -> Result<(), Error> {
     );
     let cycles = current_cycles() - start_cycles;
     debug(format!(
-        "cost of ed25519 verifying cycles: {} K",
-        cycles / 1024
+        "cost of ed25519 verifying cycles: {:.1} M",
+        cycles as f64 / (1000.0 * 1000.0)
     ));
 
     Ok(())

@@ -25,15 +25,15 @@ make ci
 ## Benchmark Matrix
 Test with [ckb-debugger 1.1.0](https://github.com/nervosnetwork/ckb-standalone-debugger)
 
-| Curve | Cycles | Binary Size | Additional Information  |
+| Algorithm | Cycles | Binary Size | Additional Information  |
 |-------------|----------|----------|-----------------------|
-| p256        |  4.8M Cycles  | 73K Bytes   | N/A      |
-| k256        |  3.6M Cycles  | 94K Bytes  | No precomputed table    |
-| RSA-2048    |  5.7M Cycles  | 135K Bytes   | N/A      |
-| ed25519     |  2.0M Cycles  | 63K Bytes   | N/A      |
-| schnorr     |  3.5M Cycles  | 80K Bytes  | N/A      |
-| k256        |  3.8M Cycles  | 97K Bytes  | Recovery |
-| sp1 verifier|  63.2M Cycles | 246K Bytes | Plonk    |
-| ml-dsa-44   |  3.2M Cycles | 119K Bytes  | N/A      |
-| ml-dsa-65   |  4.8M cycles | 119K Bytes  | N/A      |
-| ml-dsa-87   |  7.5M Cycles | 119K Bytes  | N/A      |
+| p256        |  6.4M Cycles  |  95K Bytes  | N/A                    |
+| k256        |  3.8M Cycles  | 116K Bytes  | No precomputed table   |
+| RSA-2048    |  6.5M Cycles  | 158K Bytes  | N/A                    |
+| ed25519     |  1.9M Cycles  |  88K Bytes  | N/A                    |
+| schnorr     |  3.7M Cycles  | 102K Bytes  | N/A                    |
+| k256        |  4.0M Cycles  | 118K Bytes  | Recovery               |
+| sp1 verifier | 66.2M Cycles  | 262K Bytes  | Plonk                  |
+| ml-dsa-44   |  3.3M Cycles  | 137K Bytes  | N/A                    |
+| ml-dsa-65   |  5.0M Cycles  | 137K Bytes  | N/A                    |
+| ml-dsa-87   |  7.6M Cycles  | 137K Bytes  | N/A                    |
